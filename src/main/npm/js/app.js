@@ -1,3 +1,2 @@
 require('./components/TestApp');
-require('./components/PostList');
-require('./components/PostList2');
+require('./components/post/postReactComponents');

@@ -1,3 +1,5 @@
+@import './variable.scss';
+
 @import './components/global.scss';
 @import './components/header.scss';
 
@@ -6,3 +8,7 @@
 }
 
 @import './components/mypage.scss';
+
+.section-title {
+    font-size: $titleSize;
+}
