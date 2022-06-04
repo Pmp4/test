@@ -33,4 +33,7 @@ build/
 .vscode/
 src/main/webapp/css/
 src/main/webapp/js/
+
+
 bin/
+node_modules
