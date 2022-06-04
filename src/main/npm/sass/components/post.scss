@@ -1,0 +1,22 @@
+.post-list {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    .post-item {
+        width: 50%;
+        padding: 8px;
+        display: inline-block;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+        .title {
+            font-size: 18px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            width: 100%;
+        }
+    }
+}

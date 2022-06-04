@@ -1,0 +1,6 @@
+@import './components/global.scss';
+@import './components/header.scss';
+
+.post-section {
+    @import './components/post.scss';
+}
