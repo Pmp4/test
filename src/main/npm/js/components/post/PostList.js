@@ -1,39 +1,45 @@
 import ReactDOM from "react-dom";
 import React, { useState } from 'react';
+import {BottomView} from './BottomView';
+
 
 const PostList = () => {
-    const [posts, setPosts] = useState(null);
-    
-    if(posts == null) {
-        fetch("/api/post", {
-            method:"GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            data.posts = data.posts.sort((a,b) => {return b.time - a.time});
-            setPosts(data.posts);
-        })
-        .catch((error) => console.log("error:", error));
-        return null;
+    let [posts, setPosts] = useState([]);
+    const [refresh, setRefresh] = useState(false);
+    const [inputTitle, setInputTitle] = useState('');
+    const [isBottomView, setIsBottomView] = useState(false);
+    const [clickCount, setClickCount] = useState(0);
+
+    const myValue = document.getElementById('my-value').value;
+    console.log(myValue);
+
+    function addPost(event) {
+        posts.push({title:inputTitle});
+        setInputTitle('');
     }
     
     return (
         <div className="container box">
+            <input type="text" value={inputTitle} onChange={(event) => {setInputTitle(event.target.value)}}/>
+            <button onClick={addPost}>기사 추가</button>
             <div className="post-list">
                 {
                     posts.map((post, postIndex) => {
                         return (
                             <div className="post-item" key={postIndex}>
                                 <p className="title">{post.title}</p>
-                                <small>{new Date(post.time).toString()}</small>
                             </div>
                         )
                     })
                 }
             </div>
+            <button onClick={(event) => {
+                setClickCount(clickCount+1);
+                setIsBottomView(!isBottomView);
+            }}>하단 출력</button>
+            {
+                isBottomView==false?null:<BottomView clickCount={clickCount}><div>hi</div></BottomView>
+            }
         </div>
     )
 };

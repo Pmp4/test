@@ -1,0 +1,13 @@
+URL 페이지별로
+/post/notice/~~~~
+
+-> API
+/api/post/notice
+
+
+react를 위한 id라면
+이 프로젝트에서 사용할 react는 id를 찾아서 해당 id안에 react 내용을 넣어줄거에요.
+/post/notice 에 사용하는 react라면
+[post-notice-]list
+
+sass(*.scss) 파일을 미리 생성해둔 후 app.scss에 다 넣어두고 작업을 하면 돼요.
